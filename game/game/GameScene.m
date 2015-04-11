@@ -296,32 +296,46 @@
         // Belt move;
         [belt move];
         
-//        [self.cakeSpriteP1 runAction:moveP1];
-//        if (self.cakeSpriteP1.position.y <0) {
-//            self.cakeSpriteP1.position= CGPointMake(self.cakeSpriteP1.position.x, self.size.height) ;
-//        }
         [self moveP1Sprite:cakeSpriteP1];
-//        [self moveP1Sprite:bombSpritep1];
-//        [self moveP1Sprite:jalSpritep1];
-//        [self moveP1Sprite:chipSpritep1];
-        [self moveP1Sprite:cakeSpriteP2];
-//        [self moveP1Sprite:bombSpritep2];
-//        [self moveP1Sprite:jalSpritep2];
-//        [self moveP1Sprite:chipSpritep2];
+        [self moveP1Sprite:bombSpritep1];
+        [self moveP1Sprite:jalSpritep1];
+        [self moveP1Sprite:chipSpritep1];
+        [self moveP2Sprite:cakeSpriteP2];
+        [self moveP2Sprite:bombSpritep2];
+        [self moveP2Sprite:jalSpritep2];
+        [self moveP2Sprite:chipSpritep2];
 
     }
 }
 
 - (void) moveP1Sprite:(SKSpriteNode*) node{
-    [node runAction:moveP1];
+    if (belt.direction) {
+        [node runAction:moveP1];
+    }
+    else{
+        [node runAction:moveP2];
+    }
+    
     if (node.position.y <0) {
         node.position= CGPointMake(node.position.x, self.size.height) ;
     }
-}
-- (void) moveP2Sprite:(SKSpriteNode*) node {
-    [node runAction:moveP2];
     if (node.position.y >self.size.height) {
         node.position = CGPointMake(node.position.x, 0);
+    }
+}
+
+- (void) moveP2Sprite:(SKSpriteNode*) node {
+    if (belt.direction) {
+        [node runAction:moveP2];
+    }
+    else{
+        [node runAction:moveP1];
+    }
+    if (node.position.y >self.size.height) {
+        node.position = CGPointMake(node.position.x, 0);
+    }
+    if (node.position.y <0) {
+        node.position= CGPointMake(node.position.x, self.size.height) ;
     }
 }
 
@@ -359,7 +373,7 @@
 
         [self.p1HandButton runAction:[SKAction removeFromParent]];
         [self.p2HandButton runAction:[SKAction removeFromParent]];
-        p1.player_type += 3;
+        [self p1eat];
         [self displayHand];
 
     }
@@ -367,14 +381,10 @@
     if([[touchedNode name] isEqualToString: @"p2Feed"]){
         [self.p1HandButton runAction:[SKAction removeFromParent]];
         [self.p2HandButton runAction:[SKAction removeFromParent]];
-        p2.player_type += 3;
+        [self p2eat];
         [self displayHand];
     }
 
-//    if([[touchedNode name] isEqualToString:self.cakeSpriteP1.name])
-//    {
-//        NSLog(@"caaaaaake");
-//    }
     if([[touchedNode name] isEqualToString: @"p1Swap"] || [[touchedNode name] isEqualToString: @"p2Swap"]){
         [belt switch_direction];
         NSLog(@"%d", belt.direction);
@@ -383,16 +393,59 @@
 
 }
 
-//- (void) displayFoodP1{
-//    for (int i = 0; i < 20; ++i)
-//    {
-//        if (self.foodArray[i]) {
-//            SKSpriteNode* food = self.foodArray[i];
-//            
-//        }
-//    }
-//}
+- (void) p1eat{
+    CGPoint p1hand = CGPointMake(150, self.size.height/2.0 );
+    NSLog(@"p1eat %d", p1.player_type);
+    if(p1.player_type == 0)
+        self.p1HandButton = [SKSpriteNode spriteNodeWithImageNamed:@"human closed2.png"];
+    else if(p1.player_type == 1)
+        self.p1HandButton = [SKSpriteNode spriteNodeWithImageNamed:@"robot closed2.png"];
+    else if(p1.player_type == 2)
+        self.p1HandButton = [SKSpriteNode spriteNodeWithImageNamed:@"tentacle closed2.png"];
+    self.p1HandButton.position = p1hand;
+    self.p1HandButton.name = @"p1Feed";
+    SKAction *action = [SKAction sequence:@[[SKAction moveByX:-100 y:0 duration:0.5], [SKAction waitForDuration:0.5],[SKAction removeFromParent]]];
+    [self addChild:self.p1HandButton];
+    [self.p1HandButton runAction:action];
 
+    
+}
+- (void) p2eat{
+    CGPoint p2hand = CGPointMake(self.size.width - 100, self.size.height/2.0);
+    NSLog(@"p2eat %d", p2.player_type);
+    if(p2.player_type == 0){
+        self.p2HandButton = [SKSpriteNode spriteNodeWithImageNamed:@"human closed.png"];
+    }
+    else if(p2.player_type == 1){
+        self.p2HandButton = [SKSpriteNode spriteNodeWithImageNamed:@"robot closed.png"];
+    }
+    else if(p2.player_type == 2){
+        self.p2HandButton = [SKSpriteNode spriteNodeWithImageNamed:@"tentacle closed.png"];
+    }
+    self.p2HandButton.position = p2hand;
+    self.p2HandButton.name = @"p2Feed";
+    SKAction *disappear = [SKAction sequence:@[[SKAction waitForDuration:0.4], [SKAction removeFromParent]]] ;
+    SKAction *action = [SKAction sequence:@[[SKAction moveByX:100 y:0 duration:0.5], [SKAction waitForDuration:0.5],[SKAction removeFromParent]]];
+    [cakeSpriteP1 runAction:disappear];
+    [cakeSpriteP2 runAction:disappear];
+    [self addChild:self.p2HandButton];
+    [self.p2HandButton runAction:action];
+//    
+//    if(p2.player_type == 0){
+//        self.p2HandButton = [SKSpriteNode spriteNodeWithImageNamed:@"human open.png"];
+//    }
+//    else if(p2.player_type == 1){
+//        self.p2HandButton = [SKSpriteNode spriteNodeWithImageNamed:@"robot open.png"];
+//    }
+//    else if(p2.player_type == 2){
+//        self.p2HandButton = [SKSpriteNode spriteNodeWithImageNamed:@"tentacle open.png"];
+//    }
+//    self.p2HandButton.position = p2hand;
+//    self.p2HandButton.name = @"p2Feed";
+//    [self addChild:self.p2HandButton];
+    
+    
+}
 - (void) setUpSounds
 {
     // Sound effects
