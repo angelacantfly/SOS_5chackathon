@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>1FA1DE36-4188-4098-952A-99D3C660A1EF</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>BE1FF9D21734F5DEF720A83388C4BD53EBBCECCE</key>
+		<string>https://github.com/angelacantfly/SOS_5chackathon.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>game/game.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>BE1FF9D21734F5DEF720A83388C4BD53EBBCECCE</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/angelacantfly/SOS_5chackathon.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>BE1FF9D21734F5DEF720A83388C4BD53EBBCECCE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BE1FF9D21734F5DEF720A83388C4BD53EBBCECCE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SOS_5chackathon</string>
+		</dict>
+	</array>
+</dict>
+</plist>
