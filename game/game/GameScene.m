@@ -311,7 +311,6 @@
         if (p1.player_type >2)
             p1.player_type = 0;
         [self displayHand];
-        [octoSlurp play];
     }
     
     if([[touchedNode name] isEqualToString: @"p2hand"]) {
@@ -348,12 +347,12 @@
 
 - (void) setUpSounds
 {
-    // Sound effects
-    NSString *soundFilePath =
+    // octo
+    NSString *slurpFilePath =
     [[NSBundle mainBundle] pathForResource: @"octoSlurp"
                                     ofType: @"mp3"];
     
-    NSURL *slurpURL = [[NSURL alloc] initFileURLWithPath: soundFilePath];
+    NSURL *slurpURL = [[NSURL alloc] initFileURLWithPath: slurpFilePath];
     
     octoSlurp    =
     [[AVAudioPlayer alloc] initWithContentsOfURL: slurpURL
@@ -361,6 +360,21 @@
 
     
     [octoSlurp prepareToPlay];
+    
+    // robo
+    NSString *crunchFilePath =
+    [[NSBundle mainBundle] pathForResource: @"roboCrunch"
+                                    ofType: @"mp3"];
+    
+    NSURL *crunchURL = [[NSURL alloc] initFileURLWithPath: crunchFilePath];
+    
+    roboCrunch    =
+    [[AVAudioPlayer alloc] initWithContentsOfURL: crunchURL
+                                           error: nil];
+    
+    
+    [roboCrunch prepareToPlay];
+    
     
 }
 
