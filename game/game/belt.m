@@ -24,7 +24,7 @@
 
 -(void) populateFoodList{
     for (int i = 0; i < 20; i++) {
-        [self.food_list insertObject:[[Food alloc] init:@"cake" :@"cake.png":5]atIndex:i];
+        [self.food_list insertObject:[[Food alloc] init:@"jalapeno" :@"jalapeno.png":5]atIndex:i];
     }
     
 }
