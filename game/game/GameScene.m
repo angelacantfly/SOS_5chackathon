@@ -311,6 +311,7 @@
         if (p1.player_type >2)
             p1.player_type = 0;
         [self displayHand];
+        [octoSlurp play];
     }
     
     if([[touchedNode name] isEqualToString: @"p2hand"]) {
@@ -347,21 +348,20 @@
 
 - (void) setUpSounds
 {
-//    // Sound effects
-//    NSString *soundFilePath =
-//    [[NSBundle mainBundle] pathForResource: @"octoSlurp"
-//                                    ofType: @"mp3"];
-//    
-//    NSURL *fileURL = [[NSURL alloc] initFileURLWithPath: soundFilePath];
-//    
-//    AVAudioPlayer *newPlayer =
-//    [[AVAudioPlayer alloc] initWithContentsOfURL: fileURL
-//                                           error: nil];
-//    
-//    octoSlurp = newPlayer;
-//    
-//    [octoSlurp prepareToPlay];
-//    
+    // Sound effects
+    NSString *soundFilePath =
+    [[NSBundle mainBundle] pathForResource: @"octoSlurp"
+                                    ofType: @"mp3"];
+    
+    NSURL *slurpURL = [[NSURL alloc] initFileURLWithPath: soundFilePath];
+    
+    octoSlurp    =
+    [[AVAudioPlayer alloc] initWithContentsOfURL: slurpURL
+                                           error: nil];
+
+    
+    [octoSlurp prepareToPlay];
+    
 }
 
 @end
