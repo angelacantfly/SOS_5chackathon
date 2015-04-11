@@ -11,15 +11,35 @@
 @implementation GameScene
 
 -(void)didMoveToView:(SKView *)view {
-    /* Setup your scene here */
-    SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+//    /* Setup your scene here */
+//    SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+//    
+//    myLabel.text = @"Hello, World!";
+//    myLabel.fontSize = 65;
+//    myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
+//                                   CGRectGetMidY(self.frame));
     
-    myLabel.text = @"Hello, World!";
-    myLabel.fontSize = 65;
-    myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
-                                   CGRectGetMidY(self.frame));
+    SKSpriteNode *p1Feed = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
+                                  
+    p1Feed.position = CGPointMake(self.size.width/7, self.size.height/5);
     
-    [self addChild:myLabel];
+
+    SKSpriteNode *p1Swap = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
+    
+    p1Swap.position = CGPointMake(self.size.width/7, (self.size.height*4)/5);
+    
+    
+    SKSpriteNode *p2Feed = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
+    
+    p2Feed.position = CGPointMake((self.size.width*6)/7, (self.size.height*4)/5);
+    
+    
+    SKSpriteNode *p2Swap = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
+    
+    p2Swap.position = CGPointMake((self.size.width*6)/7, self.size.height/5);
+
+    
+    [self addChild:p1Feed];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
