@@ -26,6 +26,12 @@
     return self;
 }
 
+-(void) populateFoodList{
+    for (int i = 0; i < 200; i++) {
+        
+    }
+    
+}
 -(void) move{
     if (self.direction)
         self.spawn_position += self.speed;
