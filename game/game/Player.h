@@ -10,7 +10,15 @@
 #import "Food.h"
 @interface Player : NSObject
 
-//- (Food) grabFood;
+@property (nonatomic) bool isTopPlayer;
+@property (nonatomic) int player_type;
+@property (nonatomic) int current_hp;
 
+@property bool can_grab;
+@property bool can_turn;
+
+-(Food*) grabFood;
+-(void) turnBelt;
+-(BOOL) die;
 
 @end

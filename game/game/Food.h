@@ -10,5 +10,9 @@
 
 @interface Food : NSObject
 
+@property NSString *name;
+@property NSString *image_url;
+@property int hp;
+
 
 @end
