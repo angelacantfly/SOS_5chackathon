@@ -10,31 +10,31 @@
 	<string>MixWizardsBattle</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>8779F995-CCD0-4174-BB96-3C3C9959CD29</key>
-		<string>https://github.com/HMC-CS/game13.git</string>
+		<key>BE1FF9D21734F5DEF720A83388C4BD53EBBCECCE</key>
+		<string>https://github.com/angelacantfly/SOS_5chackathon.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>MixWizardsBattle/MixWizardsBattle.xcodeproj/project.xcworkspace</string>
+	<string>example/MixWizardsBattle.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>8779F995-CCD0-4174-BB96-3C3C9959CD29</key>
+		<key>BE1FF9D21734F5DEF720A83388C4BD53EBBCECCE</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/HMC-CS/game13.git</string>
+	<string>https://github.com/angelacantfly/SOS_5chackathon.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>8779F995-CCD0-4174-BB96-3C3C9959CD29</string>
+	<string>BE1FF9D21734F5DEF720A83388C4BD53EBBCECCE</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>8779F995-CCD0-4174-BB96-3C3C9959CD29</string>
+			<string>BE1FF9D21734F5DEF720A83388C4BD53EBBCECCE</string>
 			<key>IDESourceControlWCCName</key>
-			<string>game13</string>
+			<string>SOS_5chackathon</string>
 		</dict>
 	</array>
 </dict>

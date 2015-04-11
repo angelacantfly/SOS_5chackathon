@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>1FA1DE36-4188-4098-952A-99D3C660A1EF</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>game</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>BE1FF9D21734F5DEF720A83388C4BD53EBBCECCE</key>
 		<string>https://github.com/angelacantfly/SOS_5chackathon.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>game/game.xcodeproj/project.xcworkspace</string>
+	<string>game/game.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>BE1FF9D21734F5DEF720A83388C4BD53EBBCECCE</key>
