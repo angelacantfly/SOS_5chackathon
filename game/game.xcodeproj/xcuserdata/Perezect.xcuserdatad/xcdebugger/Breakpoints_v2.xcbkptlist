@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "game/GameScene.m"
-            timestampString = "450443282.955289"
+            timestampString = "450443934.637039"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "261"
-            endingLineNumber = "261"
-            landmarkName = "-selectNodeForTouch:"
+            startingLineNumber = "263"
+            endingLineNumber = "263"
+            landmarkName = "-updateWithTimeSinceLastUpdate:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

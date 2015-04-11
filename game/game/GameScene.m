@@ -18,6 +18,7 @@
 @property (nonatomic) NSTimeInterval lastSpawnTimeInterval;
 @property (nonatomic) NSTimeInterval lastUpdateTimeInterval;
 
+@property (nonatomic) SKSpriteNode *cakeSpriteP1;
 
 @end
 
@@ -29,7 +30,7 @@
     SKAction *p2Eat;
     AVAudioPlayer *octoSlurp;
     AVAudioPlayer *roboCrunch;
-    SKSpriteNode *cakeSpriteP1;
+//    SKSpriteNode *cakeSpriteP1;
     SKSpriteNode *cakeSpriteP2;
     SKAction *moveP1;
     SKAction *moveP2;
@@ -92,25 +93,25 @@
     [self displayBelt];
 }
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    /* Called when a touch begins */
-    
-    for (UITouch *touch in touches) {
-//        CGPoint location = [touch locationInNode:self];
-//        
-//        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
-//        
-//        sprite.xScale = 0.5;
-//        sprite.yScale = 0.5;
-//        sprite.position = location;
-//        
-//        SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
-//        
-//        [sprite runAction:[SKAction repeatActionForever:action]];
-//        
-//        [self addChild:sprite];
-    }
-}
+//-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+//    /* Called when a touch begins */
+//    
+//    for (UITouch *touch in touches) {
+////        CGPoint location = [touch locationInNode:self];
+////        
+////        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
+////        
+////        sprite.xScale = 0.5;
+////        sprite.yScale = 0.5;
+////        sprite.position = location;
+////        
+////        SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
+////        
+////        [sprite runAction:[SKAction repeatActionForever:action]];
+////        
+////        [self addChild:sprite];
+//    }
+//}
 - (void) displayHand{
     CGPoint p1hand;
     CGPoint p2hand;
@@ -205,9 +206,10 @@
     
 //    [self displayCakeP1:p1left.x :p1left.y:cakeSpriteP1];
     
-    cakeSpriteP1 = [SKSpriteNode spriteNodeWithImageNamed:@"cake.png"];
-    cakeSpriteP1.position = CGPointMake(p1left.x , p1left.y);
-    [self addChild:cakeSpriteP1];
+    self.cakeSpriteP1 = [SKSpriteNode spriteNodeWithImageNamed:@"cake.png"];
+    self.cakeSpriteP1.position = CGPointMake(p1left.x , p1left.y);
+    self.cakeSpriteP1.name = @"CAKE1";
+    [self addChild:self.cakeSpriteP1];
     
     
     cakeSpriteP2 = [SKSpriteNode spriteNodeWithImageNamed:@"cake.png"];
@@ -250,9 +252,9 @@
         // Belt move;
         [belt move];
         
-        [cakeSpriteP1 runAction:moveP1];
-        if (cakeSpriteP1.position.y <0) {
-            cakeSpriteP1.position= CGPointMake(cakeSpriteP1.position.x, self.size.height) ;
+//        [cakeSpriteP1 runAction:moveP1];
+        if (self.cakeSpriteP1.position.y <0) {
+            self.cakeSpriteP1.position= CGPointMake(self.cakeSpriteP1.position.x, self.size.height) ;
         }
         [cakeSpriteP2 runAction:moveP2];
         if (cakeSpriteP2.position.y >self.size.height) {
@@ -276,6 +278,7 @@
     if([[touchedNode name] isEqualToString: @"p1hand"]) {
         p1.player_type += 1;
         p1.player_type = p1.player_type % 2;
+        NSLog(@"p1hand!!!!!");
     }
     
     if([[touchedNode name] isEqualToString: @"p2hand"]) {
@@ -289,6 +292,10 @@
     
     if([[touchedNode name] isEqualToString: @"p2Feed"]){
         // HP bar changes for p2
+    }
+    if([[touchedNode name] isEqualToString:self.cakeSpriteP1.name])
+    {
+        NSLog(@"caaaaaake");
     }
 }
 
