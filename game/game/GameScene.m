@@ -29,6 +29,8 @@
     SKAction *p2Eat;
     AVAudioPlayer *octoSlurp;
     AVAudioPlayer *roboCrunch;
+    SKSpriteNode *cakeSpriteP1;
+
 }
 
 -(id)initWithSize:(CGSize)size {
@@ -42,6 +44,7 @@
         belt =  [[Belt alloc]init:INIT_BELT_SPEED];
         [belt populateFoodList];
         [self setUpSounds];
+        
         
     }
     return self;
@@ -71,7 +74,7 @@
     
     p2Swap.position = CGPointMake(self.size.width - 100, 100);
 
-//    
+
     [self addChild:p1Feed];
     [self addChild:p1Swap];
     [self addChild:p2Feed];
@@ -159,9 +162,25 @@
     [self addChild:belt_seg3];
     [self addChild:belt_seg4];
     
+    [self displayCakeP1:p1left.x :p1left.y];
+    
 
 }
+-(void)displayCakeP1:(CGFloat)xpos: (CGFloat)ypos{
+    cakeSpriteP1 = [SKSpriteNode spriteNodeWithImageNamed:@"cake.png"];
+    cakeSpriteP1.position = CGPointMake(xpos, ypos);
+    [self addChild:cakeSpriteP1];
+    
+    
+}
 
+- (void)displayFood:(BOOL)isTopPlayer:(int) position{
+    if (isTopPlayer) {
+        Food* currentFood = belt.food_list[position];
+        SKSpriteNode *foodSprite = [SKSpriteNode spriteNodeWithImageNamed:currentFood.image_url];
+//        foodSprite.position = CGPointMake(<#CGFloat x#>, <#CGFloat y#>)
+    }
+}
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
     // Handle time delta.
@@ -179,11 +198,16 @@
 - (void)updateWithTimeSinceLastUpdate:(CFTimeInterval)timeSinceLast {
     
     self.lastSpawnTimeInterval += timeSinceLast;
-    if (self.lastSpawnTimeInterval > 0.1) {
+    if (self.lastSpawnTimeInterval > 0.5) {
         self.lastSpawnTimeInterval = 0;
         // Belt move;
         [belt move];
-//        NSLog(@")
+        SKAction *moveP1 = [SKAction moveByX:0 y:-100 duration:0.5];
+        [cakeSpriteP1 runAction:moveP1];
+        if (cakeSpriteP1.position.y <0) {
+            cakeSpriteP1.position= CGPointMake(cakeSpriteP1.position.x, self.size.height) ;
+        }
+        NSLog(@" pos %d", belt.spawn_position);
     }
 }
 - (void) setUpSounds
