@@ -19,6 +19,8 @@
 		2995ECC11AD8D6FB00D617A9 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 2995ECC01AD8D6FB00D617A9 /* Player.m */; };
 		2995ECC41AD8D74900D617A9 /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = 2995ECC31AD8D74900D617A9 /* Food.m */; };
 		2995ECCA1AD8E1F900D617A9 /* Belt.m in Sources */ = {isa = PBXBuildFile; fileRef = 2995ECC91AD8E1F900D617A9 /* Belt.m */; };
+		29D482871AD90CB00016372B /* human open.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D482861AD90CB00016372B /* human open.png */; };
+		29D482891AD90F6E0016372B /* human open2.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D482881AD90F6E0016372B /* human open2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		2995ECC31AD8D74900D617A9 /* Food.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Food.m; sourceTree = "<group>"; };
 		2995ECC81AD8E1F900D617A9 /* Belt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Belt.h; sourceTree = "<group>"; };
 		2995ECC91AD8E1F900D617A9 /* Belt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Belt.m; sourceTree = "<group>"; };
+		29D482861AD90CB00016372B /* human open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "human open.png"; sourceTree = "<group>"; };
+		29D482881AD90F6E0016372B /* human open2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "human open2.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,7 @@
 		2995EC911AD8D1CD00D617A9 /* game */ = {
 			isa = PBXGroup;
 			children = (
+				29D482851AD90C9E0016372B /* Images */,
 				2995EC961AD8D1CD00D617A9 /* AppDelegate.h */,
 				2995EC971AD8D1CD00D617A9 /* AppDelegate.m */,
 				2995EC991AD8D1CD00D617A9 /* GameScene.h */,
@@ -140,6 +145,15 @@
 				2995ECB21AD8D1CD00D617A9 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		29D482851AD90C9E0016372B /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				29D482881AD90F6E0016372B /* human open2.png */,
+				29D482861AD90CB00016372B /* human open.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,9 +237,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2995ECA81AD8D1CD00D617A9 /* LaunchScreen.xib in Resources */,
+				29D482871AD90CB00016372B /* human open.png in Resources */,
 				2995ECA51AD8D1CD00D617A9 /* Images.xcassets in Resources */,
 				2995EC9D1AD8D1CD00D617A9 /* GameScene.sks in Resources */,
 				2995ECA31AD8D1CD00D617A9 /* Main.storyboard in Resources */,
+				29D482891AD90F6E0016372B /* human open2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +462,7 @@
 				2995ECB91AD8D1CD00D617A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2995ECBA1AD8D1CD00D617A9 /* Build configuration list for PBXNativeTarget "gameTests" */ = {
 			isa = XCConfigurationList;
@@ -454,6 +471,7 @@
 				2995ECBC1AD8D1CD00D617A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

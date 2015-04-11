@@ -10,6 +10,7 @@
 
 @implementation GameScene
 
+
 -(void)didMoveToView:(SKView *)view {
 //    /* Setup your scene here */
 //    SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
@@ -26,26 +27,26 @@
     p1Feed.position = CGPointMake(self.size.width/7, self.size.height/5);
     
 
-    SKSpriteNode *p1Swap = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
+//    SKSpriteNode *p1Swap = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
     
-    p1Swap.position = CGPointMake(self.size.width/7, (self.size.height*4)/5);
-    
-    
-    SKSpriteNode *p2Feed = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
-    
-    p2Feed.position = CGPointMake((self.size.width*6)/7, (self.size.height*4)/5);
+//    p1Swap.position = CGPointMake(self.size.width/7, (self.size.height*4)/5);
     
     
-    SKSpriteNode *p2Swap = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
+//    SKSpriteNode *p2Feed = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
     
-    p2Swap.position = CGPointMake((self.size.width*6)/7, self.size.height/5);
+//    p2Feed.position = CGPointMake((self.size.width*6)/7, (self.size.height*4)/5);
+    
+    
+//    SKSpriteNode *p2Swap = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
+    
+//    p2Swap.position = CGPointMake((self.size.width*6)/7, self.size.height/5);
 
-    
-    [self addChild:p1Feed];
-    [self addChild:p1Swap];
-    [self addChild:p2Feed];
-    [self addChild:p2Swap];
-    
+//    
+//    [self addChild:p1Feed];
+//    [self addChild:p1Swap];
+//    [self addChild:p2Feed];
+//    [self addChild:p2Swap];
+    [self displayHand];
     [self displayBelt];
 }
 
@@ -68,8 +69,68 @@
 //        [self addChild:sprite];
     }
 }
-
+- (void) displayHand{
+    CGPoint p1hand;
+    CGPoint p2hand;
+    
+    p1hand = CGPointMake(100, self.size.height/2.0);
+    p2hand = CGPointMake(self.size.width - 100, self.size.height/2.0);
+    
+    SKSpriteNode *p1_hand_display = [SKSpriteNode spriteNodeWithImageNamed:@"human open.png"];
+    p1_hand_display.position = p1hand;
+    
+    SKSpriteNode *p2_hand_display = [SKSpriteNode spriteNodeWithImageNamed:@"human open2.png"];
+    p2_hand_display.position = p2hand;
+    
+    [self addChild:p1_hand_display];
+    [self addChild:p2_hand_display];
+}
 - (void) displayBelt{
+    int belt_half = 50;
+    CGSize belt_seg_size = CGSizeMake(100, 100);
+    NSInteger sizeOfHand = 200;
+    CGPoint p1left;
+    CGPoint p1right;
+    CGPoint p2right;
+    CGPoint p2left;
+    
+    
+    
+    
+    
+    CGPoint p1_mid;
+    CGPoint p2_mid;
+    
+    p1_mid = CGPointMake(sizeOfHand + belt_half, self.size.height/2.0);
+    p2_mid = CGPointMake(self.size.width - sizeOfHand-belt_half, self.size.height/2.0);
+    
+    SKSpriteNode *p1mid = [SKSpriteNode spriteNodeWithColor:[UIColor redColor] size:belt_seg_size];
+    p1mid.position = p1_mid;
+    SKSpriteNode *p2mid = [SKSpriteNode spriteNodeWithColor:[UIColor redColor] size:belt_seg_size];
+    p2mid.position = p2_mid;
+    [self addChild:p1mid];
+    [self addChild:p2mid];
+    
+    
+    p1right = CGPointMake(sizeOfHand + belt_half, sizeOfHand );
+    p1left = CGPointMake(sizeOfHand + belt_half, self.size.height - sizeOfHand );
+    p2right = CGPointMake(self.size.width - sizeOfHand - belt_half,self.size.height- sizeOfHand );
+    p2left = CGPointMake(self.size.width - sizeOfHand - belt_half, sizeOfHand );
+    
+    SKSpriteNode *belt_seg1 = [SKSpriteNode spriteNodeWithColor:[UIColor blackColor] size:belt_seg_size];
+    belt_seg1.position = p1left;
+    SKSpriteNode *belt_seg2 = [SKSpriteNode spriteNodeWithColor:[UIColor blackColor] size:belt_seg_size];
+    belt_seg2.position = p1right;
+    SKSpriteNode *belt_seg3 = [SKSpriteNode spriteNodeWithColor:[UIColor blackColor] size:belt_seg_size];
+    belt_seg3.position = p2right;
+    SKSpriteNode *belt_seg4 = [SKSpriteNode spriteNodeWithColor:[UIColor blackColor] size:belt_seg_size];
+    belt_seg4.position = p2left;
+    [self addChild:belt_seg1];
+    [self addChild:belt_seg2];
+    [self addChild:belt_seg3];
+    [self addChild:belt_seg4];
+    
+    
     
 }
 
