@@ -14,5 +14,5 @@
 @property NSString *image_url;
 @property int hp;
 
-
+- (id)init: (NSString*) foodName : (NSString*) imgUrl : (int) health;
 @end

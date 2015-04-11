@@ -17,6 +17,7 @@
 @property int speed;
 @property int spawn_position;
 
+- (id)init: (int) initSpeed;
 -(void)populateFoodList;
 -(void) move;
 -(void) switch_direction;

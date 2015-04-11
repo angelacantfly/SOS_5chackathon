@@ -17,7 +17,7 @@
 
 @property bool can_grab;
 @property bool can_turn;
-
+- (id)init: (BOOL)isTopPlayer : (int) playerChar: (int) beltPosition;
 -(Food*) grabFood;
 -(void) turnBelt;
 -(BOOL) die;

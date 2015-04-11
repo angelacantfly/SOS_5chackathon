@@ -7,18 +7,42 @@
 //
 
 #import "GameScene.h"
+#import "Belt.h"
+#import "Player.h"
 
-@implementation GameScene
+@interface GameScene()
+
+// Updates
+@property (nonatomic) NSTimeInterval lastSpawnTimeInterval;
+@property (nonatomic) NSTimeInterval lastUpdateTimeInterval;
+
+@end
+
+@implementation GameScene{
+    Player *p1;
+    Player *p2;
+    Belt *belt;
+    SKAction *p1Eat;
+    SKAction *p2Eat;
+    
+}
+
+-(id)initWithSize:(CGSize)size {
+    if (self = [super initWithSize:size]) {
+        int INIT_BELT_SPEED = 1;
+        int P1_POS = 5;
+        int P2_POS = 15;
+        
+        p1 = [[Player alloc] init:false :HUMAN :P1_POS];
+        p2 = [[Player alloc] init:true :HUMAN :P2_POS];
+        belt =  [[Belt alloc]init:INIT_BELT_SPEED];
+        
+    }
+    return self;
+}
 
 
 -(void)didMoveToView:(SKView *)view {
-//    /* Setup your scene here */
-//    SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
-//    
-//    myLabel.text = @"Hello, World!";
-//    myLabel.fontSize = 65;
-//    myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
-//                                   CGRectGetMidY(self.frame));
     
     CGSize size = CGSizeMake(200, 200);
     SKSpriteNode *p1Feed = [SKSpriteNode spriteNodeWithColor:[UIColor whiteColor] size:size];
@@ -85,6 +109,7 @@
     [self addChild:p1_hand_display];
     [self addChild:p2_hand_display];
 }
+
 - (void) displayBelt{
     int belt_half = 50;
     CGSize belt_seg_size = CGSizeMake(100, 100);
@@ -93,10 +118,8 @@
     CGPoint p1right;
     CGPoint p2right;
     CGPoint p2left;
-    
-    
-    
-    
+    NSLog(@"width : %f", self.size.width);
+    NSLog(@"height: %f", self.size.height);
     
     CGPoint p1_mid;
     CGPoint p2_mid;
@@ -112,10 +135,10 @@
     [self addChild:p2mid];
     
     
-    p1right = CGPointMake(sizeOfHand + belt_half, sizeOfHand );
-    p1left = CGPointMake(sizeOfHand + belt_half, self.size.height - sizeOfHand );
-    p2right = CGPointMake(self.size.width - sizeOfHand - belt_half,self.size.height- sizeOfHand );
-    p2left = CGPointMake(self.size.width - sizeOfHand - belt_half, sizeOfHand );
+    p1right = CGPointMake(p1_mid.x, p1_mid.y - 3 * 100 );
+    p1left = CGPointMake(p1_mid.x, p1_mid.y + 3 * 100);
+    p2right = CGPointMake(p2_mid.x,p2_mid.y - 3* 100 );
+    p2left = CGPointMake(p2_mid.x, p2_mid.y + 3* 100 );
     
     SKSpriteNode *belt_seg1 = [SKSpriteNode spriteNodeWithColor:[UIColor blackColor] size:belt_seg_size];
     belt_seg1.position = p1left;
@@ -130,12 +153,30 @@
     [self addChild:belt_seg3];
     [self addChild:belt_seg4];
     
-    
-    
+
 }
 
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
+    // Handle time delta.
+    // If we drop below 60fps, we still want everything to move the same distance.
+    CFTimeInterval timeSinceLast = currentTime - self.lastUpdateTimeInterval;
+    self.lastUpdateTimeInterval = currentTime;
+    if (timeSinceLast > 1) { // more than a second since last update
+        timeSinceLast = 1.0 / 60.0;
+        self.lastUpdateTimeInterval = currentTime;
+    }
+    
+    [self updateWithTimeSinceLastUpdate:timeSinceLast];
+}
+
+- (void)updateWithTimeSinceLastUpdate:(CFTimeInterval)timeSinceLast {
+    
+    self.lastSpawnTimeInterval += timeSinceLast;
+    if (self.lastSpawnTimeInterval > 0.1) {
+        self.lastSpawnTimeInterval = 0;
+        // Belt move;
+    }
 }
 
 @end

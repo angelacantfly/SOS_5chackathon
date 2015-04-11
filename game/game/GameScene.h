@@ -10,4 +10,12 @@
 
 @interface GameScene : SKScene
 
+typedef enum {
+    HUMAN = 0,
+    ROBOT = 1,
+    ALIEN = 2
+} PLAYERTYPE;
+
+
+
 @end
