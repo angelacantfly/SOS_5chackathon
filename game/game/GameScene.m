@@ -409,6 +409,12 @@
     else if(p1.player_type == 2)
         self.p1HandButton = [SKSpriteNode spriteNodeWithImageNamed:@"tentacle closed2.png"];
     self.p1HandButton.position = p1hand;
+    if (p1.player_type ==0)
+        [manOw play];
+    else if (p1.player_type ==1)
+        [roboOw play];
+    else if (p1.player_type ==2)
+        [octoOw play];
     self.p1HandButton.name = @"p1Feed";
     SKAction *action = [SKAction sequence:@[[SKAction moveByX:-100 y:0 duration:0.5], [SKAction waitForDuration:0.5],[SKAction removeFromParent]]];
     [self addChild:self.p1HandButton];
@@ -430,7 +436,10 @@
     }
     self.p2HandButton.position = p2hand;
     self.p2HandButton.name = @"p2Feed";
-    SKAction *disappear = [SKAction sequence:@[[SKAction waitForDuration:0.4], [SKAction removeFromParent]]] ;
+    SKAction *disappear = [SKAction sequence:@[[SKAction waitForDuration:0.3], [SKAction removeFromParent]]] ;
+    if (p2.player_type ==0) [manYum play];
+    else if (p2.player_type ==1) [roboCrunch play];
+    else if (p2.player_type ==2)[octoSlurp play];
     SKAction *action = [SKAction sequence:@[[SKAction moveByX:100 y:0 duration:0.5], [SKAction waitForDuration:0.5],[SKAction removeFromParent]]];
     [cakeSpriteP1 runAction:disappear];
     [cakeSpriteP2 runAction:disappear];
