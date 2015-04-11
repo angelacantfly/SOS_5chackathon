@@ -16,6 +16,8 @@
 		2995ECA51AD8D1CD00D617A9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2995ECA41AD8D1CD00D617A9 /* Images.xcassets */; };
 		2995ECA81AD8D1CD00D617A9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2995ECA61AD8D1CD00D617A9 /* LaunchScreen.xib */; };
 		2995ECB41AD8D1CD00D617A9 /* gameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2995ECB31AD8D1CD00D617A9 /* gameTests.m */; };
+		2995ECC11AD8D6FB00D617A9 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 2995ECC01AD8D6FB00D617A9 /* Player.m */; };
+		2995ECC41AD8D74900D617A9 /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = 2995ECC31AD8D74900D617A9 /* Food.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,10 @@
 		2995ECAD1AD8D1CD00D617A9 /* gameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2995ECB21AD8D1CD00D617A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2995ECB31AD8D1CD00D617A9 /* gameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = gameTests.m; sourceTree = "<group>"; };
+		2995ECBF1AD8D6FB00D617A9 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		2995ECC01AD8D6FB00D617A9 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		2995ECC21AD8D74900D617A9 /* Food.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Food.h; sourceTree = "<group>"; };
+		2995ECC31AD8D74900D617A9 /* Food.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Food.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,10 @@
 				2995ECA41AD8D1CD00D617A9 /* Images.xcassets */,
 				2995ECA61AD8D1CD00D617A9 /* LaunchScreen.xib */,
 				2995EC921AD8D1CD00D617A9 /* Supporting Files */,
+				2995ECBF1AD8D6FB00D617A9 /* Player.h */,
+				2995ECC01AD8D6FB00D617A9 /* Player.m */,
+				2995ECC21AD8D74900D617A9 /* Food.h */,
+				2995ECC31AD8D74900D617A9 /* Food.m */,
 			);
 			path = game;
 			sourceTree = "<group>";
@@ -231,7 +241,9 @@
 				2995ECA01AD8D1CD00D617A9 /* GameViewController.m in Sources */,
 				2995EC981AD8D1CD00D617A9 /* AppDelegate.m in Sources */,
 				2995EC9B1AD8D1CD00D617A9 /* GameScene.m in Sources */,
+				2995ECC41AD8D74900D617A9 /* Food.m in Sources */,
 				2995EC951AD8D1CD00D617A9 /* main.m in Sources */,
+				2995ECC11AD8D6FB00D617A9 /* Player.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
