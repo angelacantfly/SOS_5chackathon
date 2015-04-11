@@ -20,6 +20,10 @@
 
 @property (nonatomic) SKSpriteNode *p1HandButton;
 @property (nonatomic) SKSpriteNode *p2HandButton;
+//@property (nonatomic) SKSpriteNode *p1SwapButton;
+//@property (nonatomic) SKSpriteNode *p2SwapButton;
+//@property (nonatomic) SKSpriteNode *p1FeedButton;
+//@property (nonatomic) SKSpriteNode *p2FeedButton;
 
 
 @property (nonatomic) SKSpriteNode *p1swap;
@@ -59,10 +63,15 @@
         p1 = [[Player alloc] init:false :0 :P1_POS];
         p2 = [[Player alloc] init:true :0 :P2_POS];
         belt =  [[Belt alloc]init:INIT_BELT_SPEED];
-        moveP1 = [SKAction moveByX:0 y:(-100) duration:0.5];
-        moveP2 = [SKAction moveByX:0 y:(+100) duration:0.5];
-        [belt populateFoodList];
 
+        moveP1 = [SKAction moveByX:0 y:-100 duration:0.5];
+        moveP2 = [SKAction moveByX:0 y:+100 duration:0.5];
+        SKSpriteNode *backG = [SKSpriteNode spriteNodeWithImageNamed:@"background 1.png"];
+        backG.position = CGPointMake(self.size.width/2, self.size.height/2);
+        
+        [belt populateFoodList];
+        [self addChild: backG];
+        [self setUpSounds];
 
     }
     return self;
@@ -93,8 +102,8 @@
     self.p2swap = [SKSpriteNode spriteNodeWithImageNamed:@"swap button.png"];
     self.p2swap.name = @"p2Swap";
     
-    self.p2swap.position = CGPointMake(self.size.width - 100, 100);
 
+    self.p2swap.position = CGPointMake(self.size.width - 100, 100);
 
     [self addChild:p1Feed];
     [self addChild:self.p1swap];
@@ -122,11 +131,13 @@
     }
     
     if(p1.player_type == 1){
+
         self.p1HandButton = [SKSpriteNode spriteNodeWithImageNamed:@"robot closed2.png"];
     }
     
     if(p2.player_type == 1){
         self.p2HandButton = [SKSpriteNode spriteNodeWithImageNamed:@"robot closed.png"];
+
     }
     
     if(p1.player_type == 2){
@@ -137,6 +148,32 @@
     if(p2.player_type == 2){
         self.p2HandButton = [SKSpriteNode spriteNodeWithImageNamed:@"tentacle open2.png"];
     }
+    
+    if(p1.player_type == 3){
+        self.p1HandButton = [SKSpriteNode spriteNodeWithImageNamed:@"human closed2.png"];
+    }
+    
+    if(p2.player_type == 3){
+        self.p2HandButton = [SKSpriteNode spriteNodeWithImageNamed:@"human closed.png"];
+    }
+    
+    if(p1.player_type == 4){
+        self.p1HandButton = [SKSpriteNode spriteNodeWithImageNamed:@"robot closed2.png"];
+    }
+
+    if(p2.player_type == 4){
+        self.p2HandButton = [SKSpriteNode spriteNodeWithImageNamed:@"robot closed.png"];
+    }
+    
+    if(p1.player_type == 5){
+        self.p1HandButton = [SKSpriteNode spriteNodeWithImageNamed:@"tentacle closed2.png"];
+    }
+    
+    if(p2.player_type == 5){
+        self.p2HandButton = [SKSpriteNode spriteNodeWithImageNamed:@"tentacle closed.png"];
+    }
+    
+    
     self.p1HandButton.name = @"p1hand";
     self.p1HandButton.position = p1hand;
     self.p2HandButton.name = @"p2hand";
@@ -306,6 +343,7 @@
         if (p1.player_type >2)
             p1.player_type = 0;
         [self displayHand];
+        [octoSlurp play];
     }
     
     if([[touchedNode name] isEqualToString: @"p2hand"]) {
@@ -318,23 +356,31 @@
     }
     
     if([[touchedNode name] isEqualToString: @"p1Feed"]) {
-        // HP bar changes for p1
-        
+
+        [self.p1HandButton runAction:[SKAction removeFromParent]];
+        [self.p2HandButton runAction:[SKAction removeFromParent]];
+        p1.player_type += 3;
+        [self displayHand];
+
     }
     
     if([[touchedNode name] isEqualToString: @"p2Feed"]){
-        // HP bar changes for p2
+        [self.p1HandButton runAction:[SKAction removeFromParent]];
+        [self.p2HandButton runAction:[SKAction removeFromParent]];
+        p2.player_type += 3;
+        [self displayHand];
     }
-    if([[touchedNode name] isEqualToString:cakeSpriteP1.name])
-    {
-        NSLog(@"caaaaaake");
-    }
-    else if ([[touchedNode name] isEqual:@"p1Swap"]) {
+
+//    if([[touchedNode name] isEqualToString:self.cakeSpriteP1.name])
+//    {
+//        NSLog(@"caaaaaake");
+//    }
+    if([[touchedNode name] isEqualToString: @"p1Swap"] || [[touchedNode name] isEqualToString: @"p2Swap"]){
         [belt switch_direction];
+        NSLog(@"%d", belt.direction);
+
     }
-    else if ([[touchedNode name] isEqual:@"p2Swap"]) {
-        [belt switch_direction];
-    }
+
 }
 
 //- (void) displayFoodP1{
@@ -349,21 +395,20 @@
 
 - (void) setUpSounds
 {
-//    // Sound effects
-//    NSString *soundFilePath =
-//    [[NSBundle mainBundle] pathForResource: @"octoSlurp"
-//                                    ofType: @"mp3"];
-//    
-//    NSURL *fileURL = [[NSURL alloc] initFileURLWithPath: soundFilePath];
-//    
-//    AVAudioPlayer *newPlayer =
-//    [[AVAudioPlayer alloc] initWithContentsOfURL: fileURL
-//                                           error: nil];
-//    
-//    octoSlurp = newPlayer;
-//    
-//    [octoSlurp prepareToPlay];
-//    
+    // Sound effects
+    NSString *soundFilePath =
+    [[NSBundle mainBundle] pathForResource: @"octoSlurp"
+                                    ofType: @"mp3"];
+    
+    NSURL *slurpURL = [[NSURL alloc] initFileURLWithPath: soundFilePath];
+    
+    octoSlurp    =
+    [[AVAudioPlayer alloc] initWithContentsOfURL: slurpURL
+                                           error: nil];
+
+    
+    [octoSlurp prepareToPlay];
+    
 }
 
 @end
