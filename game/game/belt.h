@@ -12,7 +12,7 @@
 
 @interface Belt : NSObject
 
-@property NSArray* food_list;
+@property NSMutableArray* food_list;
 @property BOOL direction;
 @property int speed;
 @property int spawn_position;
@@ -20,6 +20,6 @@
 -(void) move;
 -(void) switch_direction;
 -(void) addFood:(Food*) new_food;
--(void) removeFood: (Player*) player;
+-(Food*) removeFood: (Player*) player;
 
 @end
