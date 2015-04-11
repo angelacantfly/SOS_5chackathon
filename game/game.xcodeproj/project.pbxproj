@@ -48,6 +48,7 @@
 		48F1E0111AD95BA800E9D783 /* manYum.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 48F1E00D1AD95BA800E9D783 /* manYum.mp3 */; };
 		48F1E0121AD95BA800E9D783 /* octoOw.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 48F1E00E1AD95BA800E9D783 /* octoOw.mp3 */; };
 		48F1E0131AD95BA800E9D783 /* roboOw.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 48F1E00F1AD95BA800E9D783 /* roboOw.mp3 */; };
+		48F1E0151AD9673800E9D783 /* MyLaunchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 48F1E0141AD9673800E9D783 /* MyLaunchImage.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,7 @@
 		48F1E00D1AD95BA800E9D783 /* manYum.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = manYum.mp3; sourceTree = "<group>"; };
 		48F1E00E1AD95BA800E9D783 /* octoOw.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = octoOw.mp3; sourceTree = "<group>"; };
 		48F1E00F1AD95BA800E9D783 /* roboOw.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = roboOw.mp3; sourceTree = "<group>"; };
+		48F1E0141AD9673800E9D783 /* MyLaunchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyLaunchImage.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +235,7 @@
 				48F1DFE81AD91AA600E9D783 /* tentacle open.png */,
 				29D482881AD90F6E0016372B /* human open2.png */,
 				29D482861AD90CB00016372B /* human open.png */,
+				48F1E0141AD9673800E9D783 /* MyLaunchImage.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				48F1DFF41AD91DA500E9D783 /* swap 2 blue.png in Resources */,
 				29D4828F1AD932570016372B /* tentacle open2.png in Resources */,
 				29D482871AD90CB00016372B /* human open.png in Resources */,
+				48F1E0151AD9673800E9D783 /* MyLaunchImage.png in Resources */,
 				2995ECA51AD8D1CD00D617A9 /* Images.xcassets in Resources */,
 				48F1E0131AD95BA800E9D783 /* roboOw.mp3 in Resources */,
 				48F1E0101AD95BA800E9D783 /* manOw.mp3 in Resources */,
