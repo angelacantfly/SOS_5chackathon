@@ -42,11 +42,11 @@
         int INIT_BELT_SPEED = 1;
         int P1_POS = 4;
         int P2_POS = 14;
-        p1.player_type = 0;
-        p2.player_type = 0;
+//        p1.player_type = 0;
+//        p2.player_type = 0;
         
-        p1 = [[Player alloc] init:false :p1.player_type :P1_POS];
-        p2 = [[Player alloc] init:true :p2.player_type :P2_POS];
+        p1 = [[Player alloc] init:false :0 :P1_POS];
+        p2 = [[Player alloc] init:true :0 :P2_POS];
         belt =  [[Belt alloc]init:INIT_BELT_SPEED];
         moveP1 = [SKAction moveByX:0 y:-100 duration:0.5];
         moveP2 = [SKAction moveByX:0 y:+100 duration:0.5];
@@ -97,21 +97,22 @@
 //    /* Called when a touch begins */
 //    
 //    for (UITouch *touch in touches) {
-////        CGPoint location = [touch locationInNode:self];
-////        
-////        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
-////        
-////        sprite.xScale = 0.5;
-////        sprite.yScale = 0.5;
-////        sprite.position = location;
-////        
-////        SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
-////        
-////        [sprite runAction:[SKAction repeatActionForever:action]];
-////        
-////        [self addChild:sprite];
+//        CGPoint location = [touch locationInNode:self];
+//
+//        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
+//
+//        sprite.xScale = 0.5;
+//        sprite.yScale = 0.5;
+//        sprite.position = location;
+//
+//        SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
+//
+//        [sprite runAction:[SKAction repeatActionForever:action]];
+//
+//        [self addChild:sprite];
 //    }
 //}
+
 - (void) displayHand{
     CGPoint p1hand;
     CGPoint p2hand;
@@ -227,9 +228,9 @@
     if (isTopPlayer) {
         Food* currentFood = belt.food_list[position];
         SKSpriteNode *foodSprite = [SKSpriteNode spriteNodeWithImageNamed:currentFood.image_url];
-
     }
 }
+
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
     // Handle time delta.
@@ -264,7 +265,7 @@
     }
 }
 
-- (void)touchBegin:(NSSet *)touches withEvent:(UIEvent *)event {
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
     UITouch *touch = [touches anyObject];
     CGPoint touchLocation = [touch locationInNode:self.scene];
@@ -277,8 +278,9 @@
     
     if([[touchedNode name] isEqualToString: @"p1hand"]) {
         p1.player_type += 1;
-        p1.player_type = p1.player_type % 2;
-        NSLog(@"p1hand!!!!!");
+        if (p1.player_type >2)
+            p1.player_type = 0;
+        NSLog(@"p1hand!!!!! %d", p1.player_type);
     }
     
     if([[touchedNode name] isEqualToString: @"p2hand"]) {
