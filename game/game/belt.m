@@ -33,6 +33,7 @@
         self.spawn_position += self.speed;
     else
         self.spawn_position -= self.speed;
+    self.spawn_position = self.spawn_position %20;
 }
 
 -(void) switch_direction{
