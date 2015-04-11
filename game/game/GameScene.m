@@ -38,14 +38,14 @@
         int INIT_BELT_SPEED = 1;
         int P1_POS = 4;
         int P2_POS = 14;
+        p1.player_type = 0;
+        p2.player_type = 0;
         
-        p1 = [[Player alloc] init:false :HUMAN :P1_POS];
-        p2 = [[Player alloc] init:true :HUMAN :P2_POS];
+        p1 = [[Player alloc] init:false :p1.player_type :P1_POS];
+        p2 = [[Player alloc] init:true :p2.player_type :P2_POS];
         belt =  [[Belt alloc]init:INIT_BELT_SPEED];
         [belt populateFoodList];
         [self setUpSounds];
-        
-        
     }
     return self;
 }
@@ -56,21 +56,25 @@
 //    CGSize size = CGSizeMake(200, 200);
     SKSpriteNode *p1Feed = [SKSpriteNode spriteNodeWithImageNamed:@"eat button.png"];
 //    SKSpriteNode *p1Feed = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
+    p1Feed.name = @"p1Feed";
     
     p1Feed.position = CGPointMake(100, 100);
     
 
     SKSpriteNode *p1Swap = [SKSpriteNode spriteNodeWithImageNamed:@"swap 2 blue.png"];
+    p1Swap.name = @"p1Swap";
     
     p1Swap.position = CGPointMake(100, self.size.height - 100);
     
     
     SKSpriteNode *p2Feed = [SKSpriteNode spriteNodeWithImageNamed:@"eat button 2.png"];
+    p2Feed.name = @"p2Feed";
     
     p2Feed.position = CGPointMake(self.size.width - 100, self.size.height - 100);
     
     
     SKSpriteNode *p2Swap = [SKSpriteNode spriteNodeWithImageNamed:@"swap button.png"];
+    p2Swap.name = @"p2Swap";
     
     p2Swap.position = CGPointMake(self.size.width - 100, 100);
 
@@ -108,12 +112,44 @@
     
     p1hand = CGPointMake(100, self.size.height/2.0);
     p2hand = CGPointMake(self.size.width - 100, self.size.height/2.0);
-    
+  
     SKSpriteNode *p1_hand_display = [SKSpriteNode spriteNodeWithImageNamed:@"human open.png"];
+    p1_hand_display.name = @"p1hand";
     p1_hand_display.position = p1hand;
     
     SKSpriteNode *p2_hand_display = [SKSpriteNode spriteNodeWithImageNamed:@"human open2.png"];
+    p2_hand_display.name = @"p2hand";
     p2_hand_display.position = p2hand;
+    
+    if(p1.player_type == 0){
+        SKSpriteNode *p1_hand_display = [SKSpriteNode spriteNodeWithImageNamed:@"human open.png"];
+        p1_hand_display.position = p1hand;
+    }
+    
+    if(p2.player_type == 0){
+        SKSpriteNode *p2_hand_display = [SKSpriteNode spriteNodeWithImageNamed:@"human open2.png"];
+        p2_hand_display.position = p2hand;
+    }
+    
+    if(p1.player_type == 1){
+        SKSpriteNode *p1_hand_display = [SKSpriteNode spriteNodeWithImageNamed:@"robot open.png"];
+        p1_hand_display.position = p1hand;
+    }
+    
+    if(p2.player_type == 1){
+        SKSpriteNode *p2_hand_display = [SKSpriteNode spriteNodeWithImageNamed:@"robot open2.png"];
+        p2_hand_display.position = p2hand;
+    }
+    
+    if(p1.player_type == 2){
+        SKSpriteNode *p1_hand_display = [SKSpriteNode spriteNodeWithImageNamed:@"alien open.png"];
+        p1_hand_display.position = p1hand;
+    }
+    
+    if(p1.player_type == 2){
+        SKSpriteNode *p2_hand_display = [SKSpriteNode spriteNodeWithImageNamed:@"alien open2.png"];
+        p2_hand_display.position = p2hand;
+    }
     
     [self addChild:p1_hand_display];
     [self addChild:p2_hand_display];
@@ -210,6 +246,37 @@
         NSLog(@" pos %d", belt.spawn_position);
     }
 }
+
+- (void)touchBegin:(NSSet *)touches withEvent:(UIEvent *)event {
+    /* Called when a touch begins */
+    UITouch *touch = [touches anyObject];
+    CGPoint touchLocation = [touch locationInNode:self.scene];
+    [self selectNodeForTouch:touchLocation];
+}
+
+- (void)selectNodeForTouch:(CGPoint)touchLocation
+{
+    SKSpriteNode *touchedNode = (SKSpriteNode *)[self nodeAtPoint:touchLocation];
+    
+    if([[touchedNode name] isEqualToString: @"p1hand"]) {
+        p1.player_type += 1;
+        p1.player_type = p1.player_type % 2;
+    }
+    
+    if([[touchedNode name] isEqualToString: @"p2hand"]) {
+        p2.player_type += 1;
+        p2.player_type = p2.player_type % 2;
+    }
+    
+    if([[touchedNode name] isEqualToString: @"p1Feed"]) {
+        // HP bar changes for p1
+    }
+    
+    if([[touchedNode name] isEqualToString: @"p2Feed"]){
+        // HP bar changes for p2
+    }
+}
+
 - (void) setUpSounds
 {
 //    // Sound effects
