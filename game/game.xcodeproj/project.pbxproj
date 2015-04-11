@@ -21,6 +21,18 @@
 		2995ECCA1AD8E1F900D617A9 /* Belt.m in Sources */ = {isa = PBXBuildFile; fileRef = 2995ECC91AD8E1F900D617A9 /* Belt.m */; };
 		29D482871AD90CB00016372B /* human open.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D482861AD90CB00016372B /* human open.png */; };
 		29D482891AD90F6E0016372B /* human open2.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D482881AD90F6E0016372B /* human open2.png */; };
+		48F1DFE91AD91AA600E9D783 /* bomb.png in Resources */ = {isa = PBXBuildFile; fileRef = 48F1DFE01AD91AA600E9D783 /* bomb.png */; };
+		48F1DFEA1AD91AA600E9D783 /* cake.png in Resources */ = {isa = PBXBuildFile; fileRef = 48F1DFE11AD91AA600E9D783 /* cake.png */; };
+		48F1DFEB1AD91AA600E9D783 /* chips.png in Resources */ = {isa = PBXBuildFile; fileRef = 48F1DFE21AD91AA600E9D783 /* chips.png */; };
+		48F1DFEC1AD91AA600E9D783 /* eat button.png in Resources */ = {isa = PBXBuildFile; fileRef = 48F1DFE31AD91AA600E9D783 /* eat button.png */; };
+		48F1DFED1AD91AA600E9D783 /* hot sauce.png in Resources */ = {isa = PBXBuildFile; fileRef = 48F1DFE41AD91AA600E9D783 /* hot sauce.png */; };
+		48F1DFEE1AD91AA600E9D783 /* jalapeno.png in Resources */ = {isa = PBXBuildFile; fileRef = 48F1DFE51AD91AA600E9D783 /* jalapeno.png */; };
+		48F1DFEF1AD91AA600E9D783 /* robot closed.png in Resources */ = {isa = PBXBuildFile; fileRef = 48F1DFE61AD91AA600E9D783 /* robot closed.png */; };
+		48F1DFF01AD91AA600E9D783 /* tentacle closed.png in Resources */ = {isa = PBXBuildFile; fileRef = 48F1DFE71AD91AA600E9D783 /* tentacle closed.png */; };
+		48F1DFF11AD91AA600E9D783 /* tentacle open.png in Resources */ = {isa = PBXBuildFile; fileRef = 48F1DFE81AD91AA600E9D783 /* tentacle open.png */; };
+		48F1DFF41AD91DA500E9D783 /* swap 2 blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 48F1DFF21AD91DA500E9D783 /* swap 2 blue.png */; };
+		48F1DFF51AD91DA500E9D783 /* swap button.png in Resources */ = {isa = PBXBuildFile; fileRef = 48F1DFF31AD91DA500E9D783 /* swap button.png */; };
+		48F1DFF71AD91E0200E9D783 /* eat button 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 48F1DFF61AD91E0200E9D783 /* eat button 2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +70,18 @@
 		2995ECC91AD8E1F900D617A9 /* Belt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Belt.m; sourceTree = "<group>"; };
 		29D482861AD90CB00016372B /* human open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "human open.png"; sourceTree = "<group>"; };
 		29D482881AD90F6E0016372B /* human open2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "human open2.png"; sourceTree = "<group>"; };
+		48F1DFE01AD91AA600E9D783 /* bomb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bomb.png; sourceTree = "<group>"; };
+		48F1DFE11AD91AA600E9D783 /* cake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cake.png; sourceTree = "<group>"; };
+		48F1DFE21AD91AA600E9D783 /* chips.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chips.png; sourceTree = "<group>"; };
+		48F1DFE31AD91AA600E9D783 /* eat button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eat button.png"; sourceTree = "<group>"; };
+		48F1DFE41AD91AA600E9D783 /* hot sauce.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hot sauce.png"; sourceTree = "<group>"; };
+		48F1DFE51AD91AA600E9D783 /* jalapeno.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jalapeno.png; sourceTree = "<group>"; };
+		48F1DFE61AD91AA600E9D783 /* robot closed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "robot closed.png"; sourceTree = "<group>"; };
+		48F1DFE71AD91AA600E9D783 /* tentacle closed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tentacle closed.png"; sourceTree = "<group>"; };
+		48F1DFE81AD91AA600E9D783 /* tentacle open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tentacle open.png"; sourceTree = "<group>"; };
+		48F1DFF21AD91DA500E9D783 /* swap 2 blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "swap 2 blue.png"; sourceTree = "<group>"; };
+		48F1DFF31AD91DA500E9D783 /* swap button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "swap button.png"; sourceTree = "<group>"; };
+		48F1DFF61AD91E0200E9D783 /* eat button 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eat button 2.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +128,9 @@
 				2995EC971AD8D1CD00D617A9 /* AppDelegate.m */,
 				2995EC991AD8D1CD00D617A9 /* GameScene.h */,
 				2995EC9A1AD8D1CD00D617A9 /* GameScene.m */,
+				48F1DFF61AD91E0200E9D783 /* eat button 2.png */,
+				48F1DFF21AD91DA500E9D783 /* swap 2 blue.png */,
+				48F1DFF31AD91DA500E9D783 /* swap button.png */,
 				2995EC9C1AD8D1CD00D617A9 /* GameScene.sks */,
 				2995EC9E1AD8D1CD00D617A9 /* GameViewController.h */,
 				2995EC9F1AD8D1CD00D617A9 /* GameViewController.m */,
@@ -150,6 +177,15 @@
 		29D482851AD90C9E0016372B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				48F1DFE01AD91AA600E9D783 /* bomb.png */,
+				48F1DFE11AD91AA600E9D783 /* cake.png */,
+				48F1DFE21AD91AA600E9D783 /* chips.png */,
+				48F1DFE31AD91AA600E9D783 /* eat button.png */,
+				48F1DFE41AD91AA600E9D783 /* hot sauce.png */,
+				48F1DFE51AD91AA600E9D783 /* jalapeno.png */,
+				48F1DFE61AD91AA600E9D783 /* robot closed.png */,
+				48F1DFE71AD91AA600E9D783 /* tentacle closed.png */,
+				48F1DFE81AD91AA600E9D783 /* tentacle open.png */,
 				29D482881AD90F6E0016372B /* human open2.png */,
 				29D482861AD90CB00016372B /* human open.png */,
 			);
@@ -236,12 +272,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48F1DFED1AD91AA600E9D783 /* hot sauce.png in Resources */,
+				48F1DFEF1AD91AA600E9D783 /* robot closed.png in Resources */,
+				48F1DFEE1AD91AA600E9D783 /* jalapeno.png in Resources */,
+				48F1DFEB1AD91AA600E9D783 /* chips.png in Resources */,
+				48F1DFF51AD91DA500E9D783 /* swap button.png in Resources */,
+				48F1DFF71AD91E0200E9D783 /* eat button 2.png in Resources */,
+				48F1DFEC1AD91AA600E9D783 /* eat button.png in Resources */,
+				48F1DFE91AD91AA600E9D783 /* bomb.png in Resources */,
 				2995ECA81AD8D1CD00D617A9 /* LaunchScreen.xib in Resources */,
+				48F1DFF41AD91DA500E9D783 /* swap 2 blue.png in Resources */,
 				29D482871AD90CB00016372B /* human open.png in Resources */,
 				2995ECA51AD8D1CD00D617A9 /* Images.xcassets in Resources */,
 				2995EC9D1AD8D1CD00D617A9 /* GameScene.sks in Resources */,
+				48F1DFF01AD91AA600E9D783 /* tentacle closed.png in Resources */,
 				2995ECA31AD8D1CD00D617A9 /* Main.storyboard in Resources */,
 				29D482891AD90F6E0016372B /* human open2.png in Resources */,
+				48F1DFEA1AD91AA600E9D783 /* cake.png in Resources */,
+				48F1DFF11AD91AA600E9D783 /* tentacle open.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

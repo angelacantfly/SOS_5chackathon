@@ -20,32 +20,32 @@
 //    myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
 //                                   CGRectGetMidY(self.frame));
     
-    CGSize size = CGSizeMake(200, 200);
-    SKSpriteNode *p1Feed = [SKSpriteNode spriteNodeWithColor:[UIColor whiteColor] size:size];
+//    CGSize size = CGSizeMake(200, 200);
+    SKSpriteNode *p1Feed = [SKSpriteNode spriteNodeWithImageNamed:@"eat button.png"];
 //    SKSpriteNode *p1Feed = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
     
-    p1Feed.position = CGPointMake(self.size.width/7, self.size.height/5);
+    p1Feed.position = CGPointMake(100, 100);
     
 
-//    SKSpriteNode *p1Swap = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
+    SKSpriteNode *p1Swap = [SKSpriteNode spriteNodeWithImageNamed:@"swap 2 blue.png"];
     
-//    p1Swap.position = CGPointMake(self.size.width/7, (self.size.height*4)/5);
-    
-    
-//    SKSpriteNode *p2Feed = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
-    
-//    p2Feed.position = CGPointMake((self.size.width*6)/7, (self.size.height*4)/5);
+    p1Swap.position = CGPointMake(100, self.size.height - 100);
     
     
-//    SKSpriteNode *p2Swap = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
+    SKSpriteNode *p2Feed = [SKSpriteNode spriteNodeWithImageNamed:@"eat button 2.png"];
     
-//    p2Swap.position = CGPointMake((self.size.width*6)/7, self.size.height/5);
+    p2Feed.position = CGPointMake(self.size.width - 100, self.size.height - 100);
+    
+    
+    SKSpriteNode *p2Swap = [SKSpriteNode spriteNodeWithImageNamed:@"swap button.png"];
+    
+    p2Swap.position = CGPointMake(self.size.width - 100, 100);
 
 //    
-//    [self addChild:p1Feed];
-//    [self addChild:p1Swap];
-//    [self addChild:p2Feed];
-//    [self addChild:p2Swap];
+    [self addChild:p1Feed];
+    [self addChild:p1Swap];
+    [self addChild:p2Feed];
+    [self addChild:p2Swap];
     [self displayHand];
     [self displayBelt];
 }
