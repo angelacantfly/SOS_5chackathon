@@ -30,7 +30,10 @@
     AVAudioPlayer *octoSlurp;
     AVAudioPlayer *roboCrunch;
     SKSpriteNode *cakeSpriteP1;
-
+    SKSpriteNode *cakeSpriteP2;
+    SKAction *moveP1;
+    SKAction *moveP2;
+    
 }
 
 -(id)initWithSize:(CGSize)size {
@@ -44,6 +47,8 @@
         p1 = [[Player alloc] init:false :p1.player_type :P1_POS];
         p2 = [[Player alloc] init:true :p2.player_type :P2_POS];
         belt =  [[Belt alloc]init:INIT_BELT_SPEED];
+        moveP1 = [SKAction moveByX:0 y:-100 duration:0.5];
+        moveP2 = [SKAction moveByX:0 y:+100 duration:0.5];
         [belt populateFoodList];
         [self setUpSounds];
     }
@@ -198,23 +203,29 @@
     [self addChild:belt_seg3];
     [self addChild:belt_seg4];
     
-    [self displayCakeP1:p1left.x :p1left.y];
+//    [self displayCakeP1:p1left.x :p1left.y:cakeSpriteP1];
     
-
-}
--(void)displayCakeP1:(CGFloat)xpos: (CGFloat)ypos{
     cakeSpriteP1 = [SKSpriteNode spriteNodeWithImageNamed:@"cake.png"];
-    cakeSpriteP1.position = CGPointMake(xpos, ypos);
+    cakeSpriteP1.position = CGPointMake(p1left.x , p1left.y);
     [self addChild:cakeSpriteP1];
     
     
+    cakeSpriteP2 = [SKSpriteNode spriteNodeWithImageNamed:@"cake.png"];
+    cakeSpriteP2.position = CGPointMake(p2left.x, p2left.y);
+    [self addChild:cakeSpriteP2];
+
+}
+-(void)displayCakeP1:(CGFloat)xpos: (CGFloat)ypos:(SKSpriteNode*)sprite{
+    sprite = [SKSpriteNode spriteNodeWithImageNamed:@"cake.png"];
+    sprite.position = CGPointMake(xpos, ypos);
+    [self addChild:sprite];
 }
 
 - (void)displayFood:(BOOL)isTopPlayer:(int) position{
     if (isTopPlayer) {
         Food* currentFood = belt.food_list[position];
         SKSpriteNode *foodSprite = [SKSpriteNode spriteNodeWithImageNamed:currentFood.image_url];
-//        foodSprite.position = CGPointMake(<#CGFloat x#>, <#CGFloat y#>)
+
     }
 }
 -(void)update:(CFTimeInterval)currentTime {
@@ -238,12 +249,16 @@
         self.lastSpawnTimeInterval = 0;
         // Belt move;
         [belt move];
-        SKAction *moveP1 = [SKAction moveByX:0 y:-100 duration:0.5];
+        
         [cakeSpriteP1 runAction:moveP1];
         if (cakeSpriteP1.position.y <0) {
             cakeSpriteP1.position= CGPointMake(cakeSpriteP1.position.x, self.size.height) ;
         }
-        NSLog(@" pos %d", belt.spawn_position);
+        [cakeSpriteP2 runAction:moveP2];
+        if (cakeSpriteP2.position.y >self.size.height) {
+            cakeSpriteP2.position = CGPointMake(cakeSpriteP2.position.x, 0);
+        }
+//        NSLog(@" pos %d", belt.spawn_position);
     }
 }
 
