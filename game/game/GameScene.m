@@ -19,7 +19,7 @@
 //    myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
 //                                   CGRectGetMidY(self.frame));
     
-    CGSize size = CGSizeMake(30, 30);
+    CGSize size = CGSizeMake(200, 200);
     SKSpriteNode *p1Feed = [SKSpriteNode spriteNodeWithColor:[UIColor whiteColor] size:size];
 //    SKSpriteNode *p1Feed = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
     
@@ -45,6 +45,8 @@
     [self addChild:p1Swap];
     [self addChild:p2Feed];
     [self addChild:p2Swap];
+    
+    [self displayBelt];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -65,6 +67,10 @@
 //        
 //        [self addChild:sprite];
     }
+}
+
+- (void) displayBelt{
+    
 }
 
 -(void)update:(CFTimeInterval)currentTime {
