@@ -36,6 +36,8 @@
 		48F1DFF41AD91DA500E9D783 /* swap 2 blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 48F1DFF21AD91DA500E9D783 /* swap 2 blue.png */; };
 		48F1DFF51AD91DA500E9D783 /* swap button.png in Resources */ = {isa = PBXBuildFile; fileRef = 48F1DFF31AD91DA500E9D783 /* swap button.png */; };
 		48F1DFF71AD91E0200E9D783 /* eat button 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 48F1DFF61AD91E0200E9D783 /* eat button 2.png */; };
+		48F1DFFD1AD948FB00E9D783 /* octoSlurp.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 48F1DFFC1AD948FB00E9D783 /* octoSlurp.mp3 */; };
+		48F1DFFF1AD9491900E9D783 /* background 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 48F1DFFE1AD9491900E9D783 /* background 1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +90,8 @@
 		48F1DFF21AD91DA500E9D783 /* swap 2 blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "swap 2 blue.png"; sourceTree = "<group>"; };
 		48F1DFF31AD91DA500E9D783 /* swap button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "swap button.png"; sourceTree = "<group>"; };
 		48F1DFF61AD91E0200E9D783 /* eat button 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eat button 2.png"; sourceTree = "<group>"; };
+		48F1DFFC1AD948FB00E9D783 /* octoSlurp.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = octoSlurp.mp3; sourceTree = "<group>"; };
+		48F1DFFE1AD9491900E9D783 /* background 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background 1.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +138,8 @@
 				2995EC971AD8D1CD00D617A9 /* AppDelegate.m */,
 				2995EC991AD8D1CD00D617A9 /* GameScene.h */,
 				2995EC9A1AD8D1CD00D617A9 /* GameScene.m */,
+				48F1DFFE1AD9491900E9D783 /* background 1.png */,
+				48F1DFFC1AD948FB00E9D783 /* octoSlurp.mp3 */,
 				2995EC9C1AD8D1CD00D617A9 /* GameScene.sks */,
 				2995EC9E1AD8D1CD00D617A9 /* GameViewController.h */,
 				2995EC9F1AD8D1CD00D617A9 /* GameViewController.m */,
@@ -281,6 +287,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48F1DFFD1AD948FB00E9D783 /* octoSlurp.mp3 in Resources */,
 				48F1DFED1AD91AA600E9D783 /* hot sauce.png in Resources */,
 				29D4828D1AD932570016372B /* robot closed2.png in Resources */,
 				48F1DFEF1AD91AA600E9D783 /* robot closed.png in Resources */,
@@ -292,6 +299,7 @@
 				48F1DFEC1AD91AA600E9D783 /* eat button.png in Resources */,
 				48F1DFE91AD91AA600E9D783 /* bomb.png in Resources */,
 				2995ECA81AD8D1CD00D617A9 /* LaunchScreen.xib in Resources */,
+				48F1DFFF1AD9491900E9D783 /* background 1.png in Resources */,
 				48F1DFF41AD91DA500E9D783 /* swap 2 blue.png in Resources */,
 				29D4828F1AD932570016372B /* tentacle open2.png in Resources */,
 				29D482871AD90CB00016372B /* human open.png in Resources */,
