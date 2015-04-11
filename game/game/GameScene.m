@@ -10,11 +10,14 @@
 #import "Belt.h"
 #import "Player.h"
 
+
 @interface GameScene()
+
 
 // Updates
 @property (nonatomic) NSTimeInterval lastSpawnTimeInterval;
 @property (nonatomic) NSTimeInterval lastUpdateTimeInterval;
+
 
 @end
 
@@ -24,7 +27,8 @@
     Belt *belt;
     SKAction *p1Eat;
     SKAction *p2Eat;
-    
+    AVAudioPlayer *octoSlurp;
+    AVAudioPlayer *roboCrunch;
 }
 
 -(id)initWithSize:(CGSize)size {
@@ -37,6 +41,7 @@
         p2 = [[Player alloc] init:true :HUMAN :P2_POS];
         belt =  [[Belt alloc]init:INIT_BELT_SPEED];
         [belt populateFoodList];
+        [self setUpSounds];
         
     }
     return self;
@@ -180,6 +185,24 @@
         [belt move];
 //        NSLog(@")
     }
+}
+- (void) setUpSounds
+{
+//    // Sound effects
+//    NSString *soundFilePath =
+//    [[NSBundle mainBundle] pathForResource: @"octoSlurp"
+//                                    ofType: @"mp3"];
+//    
+//    NSURL *fileURL = [[NSURL alloc] initFileURLWithPath: soundFilePath];
+//    
+//    AVAudioPlayer *newPlayer =
+//    [[AVAudioPlayer alloc] initWithContentsOfURL: fileURL
+//                                           error: nil];
+//    
+//    octoSlurp = newPlayer;
+//    
+//    [octoSlurp prepareToPlay];
+//    
 }
 
 @end

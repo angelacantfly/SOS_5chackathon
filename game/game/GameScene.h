@@ -7,8 +7,11 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface GameScene : SKScene
+
+@property (nonatomic, retain) AVAudioPlayer *player;
 
 typedef enum {
     HUMAN = 0,
