@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "game/GameScene.m"
-            timestampString = "450451583.214531"
+            timestampString = "450453173.443194"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "295"
-            endingLineNumber = "295"
+            startingLineNumber = "299"
+            endingLineNumber = "299"
             landmarkName = "-updateWithTimeSinceLastUpdate:"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "game/GameScene.m"
-            timestampString = "450451583.214531"
+            timestampString = "450453173.443194"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "317"
-            endingLineNumber = "317"
+            startingLineNumber = "321"
+            endingLineNumber = "321"
             landmarkName = "-moveP1Sprite:"
             landmarkType = "5">
          </BreakpointContent>
