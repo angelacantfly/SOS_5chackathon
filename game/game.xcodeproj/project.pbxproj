@@ -128,9 +128,6 @@
 				2995EC971AD8D1CD00D617A9 /* AppDelegate.m */,
 				2995EC991AD8D1CD00D617A9 /* GameScene.h */,
 				2995EC9A1AD8D1CD00D617A9 /* GameScene.m */,
-				48F1DFF61AD91E0200E9D783 /* eat button 2.png */,
-				48F1DFF21AD91DA500E9D783 /* swap 2 blue.png */,
-				48F1DFF31AD91DA500E9D783 /* swap button.png */,
 				2995EC9C1AD8D1CD00D617A9 /* GameScene.sks */,
 				2995EC9E1AD8D1CD00D617A9 /* GameViewController.h */,
 				2995EC9F1AD8D1CD00D617A9 /* GameViewController.m */,
@@ -177,6 +174,9 @@
 		29D482851AD90C9E0016372B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				48F1DFF61AD91E0200E9D783 /* eat button 2.png */,
+				48F1DFF21AD91DA500E9D783 /* swap 2 blue.png */,
+				48F1DFF31AD91DA500E9D783 /* swap button.png */,
 				48F1DFE01AD91AA600E9D783 /* bomb.png */,
 				48F1DFE11AD91AA600E9D783 /* cake.png */,
 				48F1DFE21AD91AA600E9D783 /* chips.png */,

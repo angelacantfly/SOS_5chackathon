@@ -15,10 +15,6 @@
     if (self)
     {
         self.food_list = [[NSMutableArray alloc] initWithCapacity:200];
-        for (int i = 0; i < 200; i++) {
-            [self.food_list addObject:@(i)];
-        }
-        
         self.direction = true;
         self.speed = initSpeed;
         self.spawn_position  = 0;
@@ -27,8 +23,8 @@
 }
 
 -(void) populateFoodList{
-    for (int i = 0; i < 200; i++) {
-        
+    for (int i = 0; i < 20; i++) {
+        [self.food_list insertObject:[[Food alloc] init:@"cake" :@"cake.png":5]atIndex:i];
     }
     
 }

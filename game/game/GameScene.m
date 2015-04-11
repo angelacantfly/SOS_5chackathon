@@ -30,12 +30,13 @@
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
         int INIT_BELT_SPEED = 1;
-        int P1_POS = 5;
-        int P2_POS = 15;
+        int P1_POS = 4;
+        int P2_POS = 14;
         
         p1 = [[Player alloc] init:false :HUMAN :P1_POS];
         p2 = [[Player alloc] init:true :HUMAN :P2_POS];
         belt =  [[Belt alloc]init:INIT_BELT_SPEED];
+        [belt populateFoodList];
         
     }
     return self;
@@ -176,6 +177,8 @@
     if (self.lastSpawnTimeInterval > 0.1) {
         self.lastSpawnTimeInterval = 0;
         // Belt move;
+        [belt move];
+//        NSLog(@")
     }
 }
 
