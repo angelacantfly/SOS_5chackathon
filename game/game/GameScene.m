@@ -25,6 +25,8 @@
 //@property (nonatomic) SKSpriteNode *p1FeedButton;
 //@property (nonatomic) SKSpriteNode *p2FeedButton;
 
+@property NSInteger numberOfLoops;
+
 
 @property (nonatomic) SKSpriteNode *p1swap;
 @property (nonatomic) SKSpriteNode *p2swap;
@@ -40,6 +42,11 @@
     SKAction *p2Eat;
     AVAudioPlayer *octoSlurp;
     AVAudioPlayer *roboCrunch;
+    AVAudioPlayer *bgm;
+    AVAudioPlayer *octoOw;
+    AVAudioPlayer *roboOw;
+    AVAudioPlayer *manYum;
+    AVAudioPlayer *manOw;
     SKSpriteNode *cakeSpriteP1;
     SKSpriteNode *cakeSpriteP2;
     SKAction *moveP1;
@@ -357,7 +364,6 @@
         if (p1.player_type >2)
             p1.player_type = 0;
         [self displayHand];
-        [octoSlurp play];
     }
     
     if([[touchedNode name] isEqualToString: @"p2hand"]) {
@@ -448,12 +454,32 @@
 }
 - (void) setUpSounds
 {
-    // Sound effects
-    NSString *soundFilePath =
+    // bgm
+    
+    NSString *bgmFilePath =
+    [[NSBundle mainBundle] pathForResource: @"BGM"
+                                    ofType: @"mp3"];
+    
+    NSURL *bgmURL = [[NSURL alloc] initFileURLWithPath: bgmFilePath];
+    
+    bgm    =
+    [[AVAudioPlayer alloc] initWithContentsOfURL: bgmURL
+                                           error: nil];
+    
+    
+
+    [bgm play];
+     bgm.numberOfLoops = -1;
+    
+    
+    
+    
+    // octo
+    NSString *slurpFilePath =
     [[NSBundle mainBundle] pathForResource: @"octoSlurp"
                                     ofType: @"mp3"];
     
-    NSURL *slurpURL = [[NSURL alloc] initFileURLWithPath: soundFilePath];
+    NSURL *slurpURL = [[NSURL alloc] initFileURLWithPath: slurpFilePath];
     
     octoSlurp    =
     [[AVAudioPlayer alloc] initWithContentsOfURL: slurpURL
@@ -461,6 +487,77 @@
 
     
     [octoSlurp prepareToPlay];
+    
+    NSString *octoFilePath =
+    [[NSBundle mainBundle] pathForResource: @"octoOw"
+                                    ofType: @"mp3"];
+    
+    NSURL *octoURL = [[NSURL alloc] initFileURLWithPath: octoFilePath];
+    
+    octoOw    =
+    [[AVAudioPlayer alloc] initWithContentsOfURL: octoURL
+                                           error: nil];
+    
+    
+    [octoOw prepareToPlay];
+    
+    // robo
+    NSString *crunchFilePath =
+    [[NSBundle mainBundle] pathForResource: @"roboCrunch"
+                                    ofType: @"mp3"];
+    
+    NSURL *crunchURL = [[NSURL alloc] initFileURLWithPath: crunchFilePath];
+    
+    roboCrunch    =
+    [[AVAudioPlayer alloc] initWithContentsOfURL: crunchURL
+                                           error: nil];
+    
+    
+    
+    [roboCrunch prepareToPlay];
+    
+    NSString *roboFilePath =
+    [[NSBundle mainBundle] pathForResource: @"roboOw"
+                                    ofType: @"mp3"];
+    
+    NSURL *roboURL = [[NSURL alloc] initFileURLWithPath: roboFilePath];
+    
+    roboOw    =
+    [[AVAudioPlayer alloc] initWithContentsOfURL: roboURL
+                                           error: nil];
+    
+    
+    
+    [roboOw prepareToPlay];
+    
+    // hooman
+    NSString *yumFilePath =
+    [[NSBundle mainBundle] pathForResource: @"manYum"
+                                    ofType: @"mp3"];
+    
+    NSURL *yumURL = [[NSURL alloc] initFileURLWithPath: yumFilePath];
+    
+    manYum    =
+    [[AVAudioPlayer alloc] initWithContentsOfURL: yumURL
+                                           error: nil];
+    
+    
+    
+    [manYum prepareToPlay];
+    
+    NSString *manFilePath =
+    [[NSBundle mainBundle] pathForResource: @"manOw"
+                                    ofType: @"mp3"];
+    
+    NSURL *manURL = [[NSURL alloc] initFileURLWithPath: manFilePath];
+    
+    manOw    =
+    [[AVAudioPlayer alloc] initWithContentsOfURL: manURL
+                                           error: nil];
+    
+    
+    
+    [manOw prepareToPlay];
     
 }
 
