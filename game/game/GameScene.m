@@ -19,6 +19,9 @@
 @property (nonatomic) NSTimeInterval lastUpdateTimeInterval;
 
 @property (nonatomic) SKSpriteNode *cakeSpriteP1;
+@property (nonatomic) SKSpriteNode *p1HandButton;
+@property (nonatomic) SKSpriteNode *p2HandButton;
+
 
 @end
 
@@ -52,6 +55,7 @@
         moveP2 = [SKAction moveByX:0 y:+100 duration:0.5];
         [belt populateFoodList];
         [self setUpSounds];
+//      [self displayHand];
     }
     return self;
 }
@@ -114,52 +118,43 @@
 //}
 
 - (void) displayHand{
-    CGPoint p1hand;
-    CGPoint p2hand;
+    CGPoint p1hand = CGPointMake(100, self.size.height/2.0 );
+//    self.p1HandButton = [SKSpriteNode spriteNodeWithImageNamed:@"human open.png"];
     
-    p1hand = CGPointMake(100, self.size.height/2.0);
-    p2hand = CGPointMake(self.size.width - 100, self.size.height/2.0);
+    CGPoint p2hand = CGPointMake(self.size.width - 100, self.size.height/2.0);
   
-    SKSpriteNode *p1_hand_display = [SKSpriteNode spriteNodeWithImageNamed:@"human open.png"];
-    p1_hand_display.name = @"p1hand";
-    p1_hand_display.position = p1hand;
-    
-    SKSpriteNode *p2_hand_display = [SKSpriteNode spriteNodeWithImageNamed:@"human open2.png"];
-    p2_hand_display.name = @"p2hand";
-    p2_hand_display.position = p2hand;
+//    SKSpriteNode *p2_hand_display = [SKSpriteNode spriteNodeWithImageNamed:@"human open2.png"];
     
     if(p1.player_type == 0){
-        SKSpriteNode *p1_hand_display = [SKSpriteNode spriteNodeWithImageNamed:@"human open.png"];
-        p1_hand_display.position = p1hand;
+        self.p1HandButton = [SKSpriteNode spriteNodeWithImageNamed:@"human open.png"];
     }
     
     if(p2.player_type == 0){
-        SKSpriteNode *p2_hand_display = [SKSpriteNode spriteNodeWithImageNamed:@"human open2.png"];
-        p2_hand_display.position = p2hand;
+        self.p2HandButton = [SKSpriteNode spriteNodeWithImageNamed:@"human open2.png"];
     }
     
     if(p1.player_type == 1){
-        SKSpriteNode *p1_hand_display = [SKSpriteNode spriteNodeWithImageNamed:@"robot open.png"];
-        p1_hand_display.position = p1hand;
+        self.p1HandButton = [SKSpriteNode spriteNodeWithImageNamed:@"robot closed.png"];
     }
     
     if(p2.player_type == 1){
-        SKSpriteNode *p2_hand_display = [SKSpriteNode spriteNodeWithImageNamed:@"robot open2.png"];
-        p2_hand_display.position = p2hand;
+        self.p2HandButton = [SKSpriteNode spriteNodeWithImageNamed:@"robot closed2.png"];
     }
     
     if(p1.player_type == 2){
-        SKSpriteNode *p1_hand_display = [SKSpriteNode spriteNodeWithImageNamed:@"alien open.png"];
-        p1_hand_display.position = p1hand;
+        self.p1HandButton = [SKSpriteNode spriteNodeWithImageNamed:@"tentacle open.png"];
+
     }
     
-    if(p1.player_type == 2){
-        SKSpriteNode *p2_hand_display = [SKSpriteNode spriteNodeWithImageNamed:@"alien open2.png"];
-        p2_hand_display.position = p2hand;
+    if(p2.player_type == 2){
+        self.p2HandButton = [SKSpriteNode spriteNodeWithImageNamed:@"tentacle open2.png"];
     }
-    
-    [self addChild:p1_hand_display];
-    [self addChild:p2_hand_display];
+    self.p1HandButton.name = @"p1hand";
+    self.p1HandButton.position = p1hand;
+    self.p2HandButton.name = @"p2hand";
+    self.p2HandButton.position = p2hand;
+    [self addChild:self.p1HandButton];
+    [self addChild:self.p2HandButton];
 }
 
 - (void) displayBelt{
@@ -277,15 +272,21 @@
     SKSpriteNode *touchedNode = (SKSpriteNode *)[self nodeAtPoint:touchLocation];
     
     if([[touchedNode name] isEqualToString: @"p1hand"]) {
+        [self.p1HandButton runAction:[SKAction removeFromParent]];
+        [self.p2HandButton runAction:[SKAction removeFromParent]];
         p1.player_type += 1;
         if (p1.player_type >2)
             p1.player_type = 0;
-        NSLog(@"p1hand!!!!! %d", p1.player_type);
+        [self displayHand];
     }
     
     if([[touchedNode name] isEqualToString: @"p2hand"]) {
+        [self.p1HandButton runAction:[SKAction removeFromParent]];
+        [self.p2HandButton runAction:[SKAction removeFromParent]];
         p2.player_type += 1;
-        p2.player_type = p2.player_type % 2;
+        if (p2.player_type >2)
+            p2.player_type = 0;
+        [self displayHand];
     }
     
     if([[touchedNode name] isEqualToString: @"p1Feed"]) {
