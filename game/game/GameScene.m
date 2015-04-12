@@ -197,8 +197,8 @@
     CGPoint p1right;
     CGPoint p2right;
     CGPoint p2left;
-    NSLog(@"width : %f", self.size.width);
-    NSLog(@"height: %f", self.size.height);
+//    NSLog(@"width : %f", self.size.width);
+//    NSLog(@"height: %f", self.size.height);
     
     CGPoint p1_mid;
     CGPoint p2_mid;
